@@ -14,7 +14,7 @@
         <img :src="qrcode_wechat" alt="qrcode_wechat" class="qrcode_wechat">
       </div>
       <div v-if="item.class==='iconfont icon-github'" slot="content">
-        <a href='https://github.com/chenfalse/uploadImage' target="_blank" class="project_name">项目地址（点击跳转）</a>
+        <a href='https://github.com/chenfalse/resume' target="_blank" class="project_name">项目地址（点击跳转）</a>
       </div>
       <i :class="item.class"></i>
     </el-tooltip>
