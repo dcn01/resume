@@ -13,31 +13,49 @@ const routes = [
       {
         path: '/about',
         name: 'about',
+        meta: {
+          title: 'about'
+        },
         component: () => import('../views/about/About.vue')
       },
       {
         path: '/message',
         name: 'message',
+        meta: {
+          title: 'message'
+        },
         component: () => import('../views/message/Message.vue')
       },
       {
         path: '/log',
         name: 'log',
+        meta: {
+          title: 'blog'
+        },
         component: () => import('../views/log/Log.vue')
       },
       {
         path: '/new',
         name: 'new',
+        meta: {
+          title: 'newBlog'
+        },
         component: () => import('../views/new/New.vue')
       },
       {
         path: '/contact',
         name: 'contact',
+        meta: {
+          title: 'contact'
+        },
         component: () => import('../views/contact/Contact.vue')
       },
       {
         path: '/content',
         name: 'blogContent',
+        meta: {
+          title: 'content'
+        },
         component: () => import('../views/content/BlogContent.vue')
       }
     ]
@@ -45,21 +63,33 @@ const routes = [
   {
     path: '/login',
     name: 'login',
+    meta: {
+      title: 'login'
+    },
     component: () => import('../views/login/Login.vue')
   },
   {
     path: '/register',
     name: 'register',
+    meta: {
+      title: 'register'
+    },
     component: () => import('../views/register/Register.vue')
   },
   {
     path: '/pdf',
     name: 'pdf',
+    meta: {
+      title: 'pdf'
+    },
     component: () => import('../views/pdf/Pdf.vue')
   },
   {
     path: '*',
     name: 'notfound',
+    meta: {
+      title: '404'
+    },
     component: () => import('../views/notfound/NotFound.vue')
   }
 ]
@@ -71,6 +101,14 @@ VueRouter.prototype.push = function push (location) {
 
 const router = new VueRouter({
   routes
+})
+
+router.beforeEach((to, from, next) => {
+  /* 路由发生变化修改页面title */
+  if (to.meta.title) {
+    document.title = to.meta.title
+  }
+  next()
 })
 
 export default router

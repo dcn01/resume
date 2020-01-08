@@ -1,6 +1,6 @@
 <template>
   <aplayer 
-    autoplay
+    :autoplay="true"
     float
     mini
     repeat="repeat-all"
